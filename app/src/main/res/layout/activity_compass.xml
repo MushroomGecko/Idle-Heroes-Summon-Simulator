@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkgnd"
+    tools:context=".CompassActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/compassBackButton"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/gradient_drawable"
+        android:text="Back"
+        android:textColor="@color/brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/compassFateButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="Fate Summon"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toStartOf="@+id/space2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compassRegPortrait" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/compassGuidanceButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="Guidance Summon"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/space2"
+        app:layout_constraintTop_toBottomOf="@+id/compassLDPortrait" />
+
+    <Spinner
+        android:id="@+id/compassSpinnerReg"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/yellow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compassBackButton" />
+
+    <ImageView
+        android:id="@+id/compassRegPortrait"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compassSpinnerReg"
+        app:srcCompat="@drawable/bkgnd" />
+
+    <Spinner
+        android:id="@+id/compassSpinnerLD"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compassBackButton" />
+
+    <ImageView
+        android:id="@+id/compassLDPortrait"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compassSpinnerLD"
+        app:srcCompat="@drawable/bkgnd" />
+
+    <EditText
+        android:id="@+id/compassDrawNum"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1"
+        android:textColor="@color/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/compassDrawText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Draw Amount:"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/compassSpinnerReg"
+        app:layout_constraintEnd_toStartOf="@+id/compassDrawNum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/compassRegRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="0.0"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/compassRegPortrait"
+        app:layout_constraintStart_toEndOf="@+id/compassRegPortrait"
+        app:layout_constraintTop_toTopOf="@+id/compassRegPortrait" />
+
+    <TextView
+        android:id="@+id/compassLDRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="0.0"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/compassLDPortrait"
+        app:layout_constraintEnd_toStartOf="@+id/compassLDPortrait"
+        app:layout_constraintTop_toTopOf="@+id/compassLDPortrait" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/compassFateButton">
+
+        <LinearLayout
+            android:id="@+id/linLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/compassGuidanceCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Guidance Counter: 0/15"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toTopOf="@+id/compassFateButton"
+        app:layout_constraintEnd_toStartOf="@+id/compassLDPortrait"
+        app:layout_constraintStart_toEndOf="@+id/compassRegPortrait" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

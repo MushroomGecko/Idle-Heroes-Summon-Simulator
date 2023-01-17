@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkgnd"
+    tools:context=".SummonCircleActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/summonCircleBackButton"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/gradient_drawable"
+        android:text="Back"
+        android:textColor="@color/brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/basicButton"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="Basic Summon"
+        android:textColor="@color/brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heroicEventButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/heroicButton"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="Heroic Summon"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toStartOf="@+id/friendshipButton"
+        app:layout_constraintStart_toEndOf="@+id/basicButton"
+        app:layout_constraintTop_toBottomOf="@+id/heroicEventButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/friendshipButton"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="Friendship Summon"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heroicEventButton" />
+
+
+    <EditText
+        android:id="@+id/summonCircleDrawNum"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toTopOf="@+id/heroicEventButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="Scroll window"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heroicButton">
+
+        <LinearLayout
+            android:id="@+id/linLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/summonCircleDrawText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Draw Amount:"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/heroicEventButton"
+        app:layout_constraintEnd_toStartOf="@+id/summonCircleDrawNum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/heroicEventButton"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="Heroic Summon Event (Vulcan)"
+        android:textColor="@color/brown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/summonCircleBackButton" />
+
+    <TextView
+        android:id="@+id/heroicEventCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0/500"
+        android:textColor="@color/yellow"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/heroicEventButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/heroicEventButton"
+        app:layout_constraintTop_toTopOf="@+id/heroicEventButton" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

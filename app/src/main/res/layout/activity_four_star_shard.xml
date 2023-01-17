@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7C5341"
+    tools:context=".FourStarShardActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fourShardBackButton"
+        android:layout_width="75dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/gradient_drawable"
+        android:text="Back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/regFourShardButton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="4 Star Regular"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fourShardBackButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/shadFourShardButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/rounded_button"
+        android:text="4 Star Shadow"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toStartOf="@+id/fortFourShardButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regFourShardButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fortFourShardButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="4 Star Fortress"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regFourShardButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/abyFourShardButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="4 Star Abyss"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fortFourShardButton"
+        app:layout_constraintTop_toBottomOf="@+id/regFourShardButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fstFourShardButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/rounded_button"
+        android:text="4 Star Forest"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toStartOf="@+id/darkFourShardButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shadFourShardButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/darkFourShardButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="4 Star Dark"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fortFourShardButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/litFourShardButton"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_button"
+        android:text="4 Star Light"
+        android:textColor="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/darkFourShardButton"
+        app:layout_constraintTop_toBottomOf="@+id/abyFourShardButton" />
+
+    <EditText
+        android:id="@+id/fourShardDrawNum"
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="1"
+        android:textColor="@color/yellow"
+        app:layout_constraintBottom_toTopOf="@+id/regFourShardButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="Scroll window"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/darkFourShardButton">
+
+        <LinearLayout
+            android:id="@+id/linLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/fourStarDrawText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Draw Amount:"
+        android:textColor="@color/yellow"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/regFourShardButton"
+        app:layout_constraintEnd_toStartOf="@+id/fourShardDrawNum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
