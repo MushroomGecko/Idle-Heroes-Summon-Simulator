@@ -39,19 +39,29 @@ public class AwakeningActivity extends AppCompatActivity
                 main_layout.removeAllViews();
                 int awakenAmount = 5;
                 TextView awakens[] = new TextView[awakenAmount];
-                Arrays.fill(awakens, summonTier(" "));
+                Arrays.fill(awakens, summonTier(""));
                 for (int i = 0; i < getInput(); i++)
                 {
                     if(i % 5 == 0 && i > 0)
                     {
-                        addTierToView(awakens, awakenAmount);
-                        Arrays.fill(awakens, summonTier(" "));
+                        addTierToView(awakens, 250, awakenAmount);
+                        Arrays.fill(awakens, summonTier(""));
                     }
-                    String summon = mySum.pullAwakening();
-                    System.out.println(summon + " " + i + " " + i % awakenAmount);
-                    awakens[i % 5] = summonTier(summon);
+                    awakens[i % 5] = summonTier(mySum.pullAwakening());
                 }
-                addTierToView(awakens, awakenAmount);
+                int lastRow = 0;
+                for(int i = 0; i < awakenAmount; i++)
+                {
+                    if(awakens[i].getText() != "")
+                    {
+                        lastRow++;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                addTierToView(awakens, 250, lastRow);
 
             }
         });
@@ -73,15 +83,16 @@ public class AwakeningActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void addTierToView(TextView[] text, int awakenAmount)
+    public void addTierToView(TextView[] text, int height, int awakenAmount)
     {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        LinearLayout.LayoutParams txtlayoutParams = new LinearLayout.LayoutParams(metrics.widthPixels / awakenAmount, 250);
+
+        LinearLayout.LayoutParams txtlayoutParams = new LinearLayout.LayoutParams(metrics.widthPixels / awakenAmount, height);
         txtlayoutParams.setMargins(5, 10, 5, 10);
 
-        for(int i  = 0; i < awakenAmount; i++)
+        for(int i = 0; i < awakenAmount; i++)
         {
             text[i].setLayoutParams(txtlayoutParams);
         }
@@ -93,7 +104,6 @@ public class AwakeningActivity extends AppCompatActivity
         {
             layout.addView(text[i]);
         }
-
 
         main_layout.addView(layout);
     }
