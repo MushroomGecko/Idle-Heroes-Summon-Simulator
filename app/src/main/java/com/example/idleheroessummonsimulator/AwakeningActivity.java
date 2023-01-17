@@ -38,7 +38,7 @@ public class AwakeningActivity extends AppCompatActivity
             {
                 main_layout.removeAllViews();
                 int awakenAmount = 5;
-                TextView awakens[] = new TextView[awakenAmount];
+                TextView[] awakens = new TextView[awakenAmount];
                 Arrays.fill(awakens, summonTier(""));
                 for (int i = 0; i < getInput(); i++)
                 {
@@ -92,16 +92,12 @@ public class AwakeningActivity extends AppCompatActivity
         LinearLayout.LayoutParams txtlayoutParams = new LinearLayout.LayoutParams(metrics.widthPixels / awakenAmount, height);
         txtlayoutParams.setMargins(5, 10, 5, 10);
 
-        for(int i = 0; i < awakenAmount; i++)
-        {
-            text[i].setLayoutParams(txtlayoutParams);
-        }
-
         LinearLayout layout = new LinearLayout(AwakeningActivity.this);
         layout.setOrientation(LinearLayout.HORIZONTAL);
 
         for(int i = 0; i < awakenAmount; i++)
         {
+            text[i].setLayoutParams(txtlayoutParams);
             layout.addView(text[i]);
         }
 
