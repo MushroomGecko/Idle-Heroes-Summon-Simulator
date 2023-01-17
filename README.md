@@ -16,7 +16,7 @@ Idle Heroes is a free to play idle game on iOS and Android made by DHGames. All 
 
 This simulator is up to date with Idle Heroes version 1.30.25 on Android and version 1.38.9 on iOS.
 
-## Images from app
+## Images From App
 [<img src="https://user-images.githubusercontent.com/70172740/212793884-d1c41478-a11b-4a94-a631-999b57818ce2.jpg" alt="Main menu" width="15%" height="15%"/>
 [<img src="https://user-images.githubusercontent.com/70172740/212793907-459d6acd-d884-4a0c-9196-4c14ac63be4a.jpg" alt="Summoning circle" width="15%" height="15%"/>
 [<img src="https://user-images.githubusercontent.com/70172740/212793924-67f821ca-db46-400b-ba73-927ea68e0f22.jpg" alt="Hero awakening" width="15%" height="15%"/>
