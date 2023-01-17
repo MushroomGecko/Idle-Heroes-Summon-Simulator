@@ -68,9 +68,10 @@ public class BagActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                main_layout.removeAllViews();
+
                 MainActivity.name_bag.clear();
                 MainActivity.draw_bag.clear();
-
                 for(int i = 0; i < MainActivity.overview.size(); i++)
                 {
                     MainActivity.overview.set(i, 0);
@@ -82,7 +83,7 @@ public class BagActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    main_layout.removeAllViews();
+                    extendedView();
                 }
 
             }
