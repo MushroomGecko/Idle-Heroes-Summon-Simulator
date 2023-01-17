@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.example.idleheroessummonsimulator.databinding.ActivityAwakeningBinding;
 
+import java.util.Arrays;
+
 public class AwakeningActivity extends AppCompatActivity
 {
     AwakenHero mySum = new AwakenHero();
@@ -35,10 +37,21 @@ public class AwakeningActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 main_layout.removeAllViews();
+                int awakenAmount = 5;
+                TextView awakens[] = new TextView[awakenAmount];
+                Arrays.fill(awakens, summonTier(" "));
                 for (int i = 0; i < getInput(); i++)
                 {
-                    summonTier(mySum.pullAwakening());
+                    if(i % 5 == 0 && i > 0)
+                    {
+                        addTierToView(awakens, awakenAmount);
+                        Arrays.fill(awakens, summonTier(" "));
+                    }
+                    String summon = mySum.pullAwakening();
+                    System.out.println(summon + " " + i + " " + i % awakenAmount);
+                    awakens[i % 5] = summonTier(summon);
                 }
+                addTierToView(awakens, awakenAmount);
 
             }
         });
@@ -60,28 +73,32 @@ public class AwakeningActivity extends AppCompatActivity
         startActivity(intent);
     }
 
-    public void addTierToView(TextView text, int width, int height)
+    public void addTierToView(TextView[] text, int awakenAmount)
     {
-        LinearLayout.LayoutParams imglayoutParams = new LinearLayout.LayoutParams(width, height);
-        imglayoutParams.setMargins(25, 10, 25, 10);
-
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        LinearLayout.LayoutParams txtlayoutParams = new LinearLayout.LayoutParams(metrics.widthPixels, height);
-        imglayoutParams.setMargins(5, 10, 5, 10);
+        LinearLayout.LayoutParams txtlayoutParams = new LinearLayout.LayoutParams(metrics.widthPixels / awakenAmount, 250);
+        txtlayoutParams.setMargins(5, 10, 5, 10);
 
-        text.setLayoutParams(txtlayoutParams);
+        for(int i  = 0; i < awakenAmount; i++)
+        {
+            text[i].setLayoutParams(txtlayoutParams);
+        }
 
         LinearLayout layout = new LinearLayout(AwakeningActivity.this);
         layout.setOrientation(LinearLayout.HORIZONTAL);
 
-        layout.addView(text);
+        for(int i = 0; i < awakenAmount; i++)
+        {
+            layout.addView(text[i]);
+        }
+
 
         main_layout.addView(layout);
     }
 
-    public void summonTier(String tier)
+    public TextView summonTier(String tier)
     {
         TextView text = new TextView(AwakeningActivity.this);
         if(tier.contains("E"))
@@ -112,7 +129,7 @@ public class AwakeningActivity extends AppCompatActivity
         text.setTextSize(42);
         text.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 
-        addTierToView(text, 250, 250);
+        return text;
     }
 
     public int getInput()
