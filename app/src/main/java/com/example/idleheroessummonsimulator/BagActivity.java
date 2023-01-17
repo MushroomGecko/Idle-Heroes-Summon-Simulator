@@ -18,6 +18,8 @@ public class BagActivity extends AppCompatActivity {
     private ActivityBagBinding binding;
     LinearLayout main_layout;
 
+    boolean standard = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class BagActivity extends AppCompatActivity {
 
         main_layout = findViewById(R.id.linLay);
 
+
         standardView();
 
         binding.bagExtendedViewButton.setOnClickListener(new View.OnClickListener()
@@ -34,6 +37,7 @@ public class BagActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                standard = false;
                 main_layout.removeAllViews();
                 extendedView();
             }
@@ -44,6 +48,7 @@ public class BagActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
+                standard = true;
                 main_layout.removeAllViews();
                 standardView();
             }
@@ -65,7 +70,21 @@ public class BagActivity extends AppCompatActivity {
             {
                 MainActivity.name_bag.clear();
                 MainActivity.draw_bag.clear();
-                main_layout.removeAllViews();
+
+                for(int i = 0; i < MainActivity.overview.size(); i++)
+                {
+                    MainActivity.overview.set(i, 0);
+                }
+
+                if(standard)
+                {
+                    standardView();
+                }
+                else
+                {
+                    main_layout.removeAllViews();
+                }
+
             }
         });
 
