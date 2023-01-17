@@ -1204,6 +1204,8 @@ public class HeroSummon {
         System.out.println(heroes[find]);
     }
 
+    public int getTotalSize() { return heroes.length; }
+
     public String returnIndex(int find)
     {
         return heroes[find];

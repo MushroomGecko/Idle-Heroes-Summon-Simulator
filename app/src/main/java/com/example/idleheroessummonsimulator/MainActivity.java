@@ -1,6 +1,9 @@
 package com.example.idleheroessummonsimulator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -8,11 +11,17 @@ import android.view.View;
 import android.os.Bundle;
 import com.example.idleheroessummonsimulator.databinding.ActivityMainBinding;
 
+import codeassets.HeroSummon;
+
 public class MainActivity extends AppCompatActivity
 {
     private ActivityMainBinding binding;
     public static ArrayList<String> name_bag = new ArrayList();
     public static ArrayList<Integer> draw_bag = new ArrayList();
+
+    static HeroSummon mySum = new HeroSummon();
+    public static ArrayList<Integer> overview = new ArrayList(Collections.nCopies(mySum.getTotalSize(), 0));
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

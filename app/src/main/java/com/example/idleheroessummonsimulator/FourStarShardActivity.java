@@ -163,7 +163,8 @@ public class FourStarShardActivity extends AppCompatActivity
 
     public void summonHero(String hero)
     {
-        String name = "h"+mySum.findIndex(hero);
+        int position = mySum.findIndex(hero);
+        String name = "h"+position;
         int index = getResources().getIdentifier(name, "drawable", getPackageName());
 
         ImageView image = new ImageView(FourStarShardActivity.this);
@@ -176,6 +177,7 @@ public class FourStarShardActivity extends AppCompatActivity
 
         addHeroToView(image, text, 250, 250);
 
+        MainActivity.overview.set(position, MainActivity.overview.get(position)+1);
         MainActivity.name_bag.add(hero);
         Integer intIndex = new Integer(index);
         MainActivity.draw_bag.add(intIndex);

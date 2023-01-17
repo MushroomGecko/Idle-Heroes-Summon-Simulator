@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 import com.example.idleheroessummonsimulator.databinding.ActivityBagBinding;
 
+import java.util.Arrays;
+
+import codeassets.AwakenHero;
+import codeassets.HeroSummon;
+
 public class BagActivity extends AppCompatActivity {
 
     private ActivityBagBinding binding;
@@ -25,22 +30,29 @@ public class BagActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-
         main_layout = findViewById(R.id.linLay);
 
+        standardView();
 
-        for(int i = 0; i < MainActivity.name_bag.size(); i++)
+        binding.bagExtendedViewButton.setOnClickListener(new View.OnClickListener()
         {
-            ImageView image = new ImageView(BagActivity.this);
-            image.setImageResource(MainActivity.draw_bag.get(i).intValue());
+            @Override
+            public void onClick(View v)
+            {
+                main_layout.removeAllViews();
+                extendedView();
+            }
+        });
 
-            TextView text = new TextView(BagActivity.this);
-            text.setText(MainActivity.name_bag.get(i));
-            text.setTextSize(20);
-            text.setGravity(Gravity.CENTER_VERTICAL);
-
-            addHero(image, text, 250, 250);
-        }
+        binding.bagStandardViewButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                main_layout.removeAllViews();
+                standardView();
+            }
+        });
 
         binding.bagBackButton.setOnClickListener(new View.OnClickListener()
         {
@@ -62,6 +74,40 @@ public class BagActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void extendedView()
+    {
+        for(int i = 0; i < MainActivity.name_bag.size(); i++)
+        {
+            ImageView image = new ImageView(BagActivity.this);
+            image.setImageResource(MainActivity.draw_bag.get(i).intValue());
+
+            TextView text = new TextView(BagActivity.this);
+            text.setText(MainActivity.name_bag.get(i));
+            text.setTextSize(20);
+            text.setGravity(Gravity.CENTER_VERTICAL);
+
+            addHero(image, text, 250, 250);
+        }
+    }
+
+    private void standardView()
+    {
+        for(int i = 0; i < MainActivity.overview.size(); i++)
+        {
+            String name = "h"+i;
+            int index = getResources().getIdentifier(name, "drawable", getPackageName());
+            ImageView image = new ImageView(BagActivity.this);
+            image.setImageResource(index);
+
+            TextView text = new TextView(BagActivity.this);
+            text.setText(String.valueOf(MainActivity.overview.get(i)));
+            text.setTextSize(20);
+            text.setGravity(Gravity.CENTER_VERTICAL);
+
+            addHero(image, text, 250, 250);
+        }
     }
 
     private void changePage()
