@@ -13,11 +13,6 @@ import android.widget.TextView;
 
 import com.example.idleheroessummonsimulator.databinding.ActivityBagBinding;
 
-import java.util.Arrays;
-
-import codeassets.AwakenHero;
-import codeassets.HeroSummon;
-
 public class BagActivity extends AppCompatActivity {
 
     private ActivityBagBinding binding;

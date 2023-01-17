@@ -1,7 +1,6 @@
 package com.example.idleheroessummonsimulator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 import androidx.appcompat.app.AlertDialog;

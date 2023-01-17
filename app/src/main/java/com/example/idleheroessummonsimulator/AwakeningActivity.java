@@ -12,11 +12,9 @@ import android.view.View;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import java.util.Arrays;
 
 import com.example.idleheroessummonsimulator.databinding.ActivityAwakeningBinding;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AwakeningActivity extends AppCompatActivity
 {
