@@ -1,6 +1,8 @@
 package com.example.idleheroessummonsimulator;
 
 import codeassets.*;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.idleheroessummonsimulator.databinding.ActivityAwakeningBinding;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class AwakeningActivity extends AppCompatActivity
@@ -20,6 +23,9 @@ public class AwakeningActivity extends AppCompatActivity
     AwakenHero mySum = new AwakenHero();
     private ActivityAwakeningBinding binding;
     LinearLayout main_layout;
+
+    private final String[] awaken_ranks = new String[]{"E-", "E", "E+", "D-", "D", "D+", "C-", "C", "C+", "B-", "B", "B+", "A-", "A", "A+", "S"};
+    private final int[] awaken_bag = new int[awaken_ranks.length];
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -37,6 +43,7 @@ public class AwakeningActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 main_layout.removeAllViews();
+                Arrays.fill(awaken_bag, 0);
                 int awakenAmount = 5;
                 TextView[] awakens = new TextView[awakenAmount];
                 Arrays.fill(awakens, summonTier(""));
@@ -63,6 +70,15 @@ public class AwakeningActivity extends AppCompatActivity
                 }
                 addTierToView(awakens, 250, lastRow);
 
+            }
+        });
+
+        binding.awakenOverviewButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                alert();
             }
         });
 
@@ -106,6 +122,14 @@ public class AwakeningActivity extends AppCompatActivity
 
     public TextView summonTier(String tier)
     {
+        for(int i = 0; i < awaken_ranks.length; i++)
+        {
+            if(tier.equals(awaken_ranks[i]))
+            {
+                awaken_bag[i]++;
+            }
+        }
+
         TextView text = new TextView(AwakeningActivity.this);
         if(tier.contains("E"))
         {
@@ -148,5 +172,29 @@ public class AwakeningActivity extends AppCompatActivity
         {
             return 1;
         }
+    }
+
+    private void alert()
+    {
+        AlertDialog alertDialog = new AlertDialog.Builder(AwakeningActivity.this).create();
+        alertDialog.setTitle("Awakenings Overview");
+
+        String overview = "";
+        for(int i = 0; i < awaken_bag.length; i++)
+        {
+            if(awaken_ranks[i].length() == 1)
+            {
+                overview = overview.concat(awaken_ranks[i] + " " + ": " + awaken_bag[i] + "\n");
+            }
+            else
+            {
+                overview = overview.concat(awaken_ranks[i] + ": " + awaken_bag[i] + "\n");
+            }
+
+        }
+
+        alertDialog.setMessage(overview);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK", (dialog, which) -> dialog.dismiss());
+        alertDialog.show();
     }
 }

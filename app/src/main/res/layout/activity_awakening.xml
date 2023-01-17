@@ -8,6 +8,18 @@
     tools:context=".AwakeningActivity">
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/awakenOverviewButton"
+        android:layout_width="90dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_button"
+        android:text="Overview"
+        android:textColor="@color/brown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/awakenBackButton"
         android:layout_width="75dp"
         android:layout_height="35dp"
@@ -52,8 +64,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
         android:contentDescription="Scroll window"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/awakenOverviewButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/awakenButton">
