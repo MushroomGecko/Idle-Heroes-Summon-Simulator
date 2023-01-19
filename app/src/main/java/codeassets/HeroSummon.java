@@ -681,14 +681,18 @@ public class HeroSummon {
 
     public String prophetSummonFst()
     {
-        fourStarShards = 7;
-        fourStarFst = 7.5;
+        fourStarShards = 7.0;
+        fourStarFst = 60.0 / fourCountFst;
         fiveStarShards = 24;
-        unNatfiveStarFst = 0.6;
-        fiveStarFst = 0.4;
-        fiveStarEliteFst = 0.117;
+        unNatfiveStarFst = 4.8 / unNatFiveCountFst;
+        fiveStarFst = 2.8 / fiveCountFst;
+        fiveStarEliteFst = 1.4 / fiveCountEliteFst;
 
-        int index = distribution(getRates());
+        // System.out.println(fourStarShards + " " + fourStarFst + " " + fiveStarShards + " " + unNatfiveStarFst + " " + fiveStarFst + " " + fiveStarEliteFst);
+
+        double[] prophFstList = getRates();
+
+        int index = distribution(prophFstList);
         String hero = heroes[index];
         resetRates();
         return hero;
@@ -696,14 +700,19 @@ public class HeroSummon {
 
     public String prophetSummonAby()
     {
-        fourStarShards = 7;
-        fourStarAby = 7.5;
+        fourStarShards = 7.0;
+        fourStarAby = 60.0 / fourCountAby;
         fiveStarShards = 24;
-        unNatfiveStarAby = 0.6;
-        fiveStarAby = 0.4;
-        fiveStarEliteAby = 0.117;
+        unNatfiveStarAby = 4.8 / unNatFiveCountAby;
+        fiveStarAby = 2.8 / (fiveCountAby - 1);
+        fiveStarEliteAby = 1.4 / (fiveCountEliteAby + 1);
 
-        int index = distribution(getRates());
+        // System.out.println(fourStarShards + " " + fourStarAby + " " + fiveStarShards + " " + unNatfiveStarAby + " " + fiveStarAby + " " + fiveStarEliteAby);
+
+        double[] prophAbyList = getRates();
+        prophAbyList[findIndex("Barea", 5)] = fiveStarEliteAby;
+
+        int index = distribution(prophAbyList);
         String hero = heroes[index];
         resetRates();
         return hero;
@@ -711,14 +720,19 @@ public class HeroSummon {
 
     public String prophetSummonFrt()
     {
-        fourStarShards = 7;
-        fourStarFrt = 7.5;
-        fiveStarShards = 24;
-        unNatfiveStarFrt = 0.6;
-        fiveStarFrt = 0.4;
-        fiveStarEliteFrt = 0.117;
+        fourStarShards = 7.0;
+        fourStarFrt = 60.0 / fourCountFrt;
+        fiveStarShards = 24.0;
+        unNatfiveStarFrt = 4.8 / unNatFiveCountFrt;
+        fiveStarFrt = 2.8 / (fiveCountFrt - 1);
+        fiveStarEliteFrt = 1.4 / (fiveCountEliteFrt + 1);
 
-        int index = distribution(getRates());
+        // System.out.println(fourStarShards + " " + fourStarFrt + " " + fiveStarShards + " " + unNatfiveStarFrt + " " + fiveStarFrt + " " + fiveStarEliteFrt);
+
+        double[] prophFrtList = getRates();
+        prophFrtList[findIndex("Flame Strike", 5)] = fiveStarEliteFrt;
+
+        int index = distribution(prophFrtList);
         String hero = heroes[index];
         resetRates();
         return hero;
@@ -726,14 +740,22 @@ public class HeroSummon {
 
     public String prophetSummonShd()
     {
-        fourStarShards = 7;
-        fourStarShd = 7.5;
-        fiveStarShards = 24;
-        unNatfiveStarShd = 0.6;
-        fiveStarShd = 0.4;
-        fiveStarEliteShd = 0.117;
+        fourStarShards = 7.0;
+        fourStarShd = 60.0 / fourCountShd;
+        fiveStarShards = 24.0;
+        unNatfiveStarShd = 4.8 / unNatFiveCountShd;
+        fiveStarShd = 2.8 / fiveCountShd;
+        fiveStarEliteShd = 1.4 / fiveCountEliteShd;
 
-        int index = distribution(getRates());
+        // System.out.println(fourStarShards + " " + fourStarShd + " " + fiveStarShards + " " + unNatfiveStarShd + " " + fiveStarShd + " " + fiveStarEliteShd);
+
+        // Why is Aiden considered normal, but BB is considered elite in PO???
+        // I understand some of the prophets above require one additional non-elite in the elite pool to balance the rates, but this is ridiculous
+        double[] prophShdList = getRates();
+        prophShdList[findIndex("Aidan", 5)] = fiveStarShd;
+        prophShdList[findIndex("Blood Blade", 5)] = fiveStarEliteShd;
+
+        int index = distribution(prophShdList);
         String hero = heroes[index];
         resetRates();
         return hero;
@@ -741,17 +763,19 @@ public class HeroSummon {
 
     public String prophetSummonLD()
     {
-        fourStarShardsL = 20;
-        fourStarShardsD = 20;
-        fourStarL = 4.7;
-        fourStarD = 4.6;
-        fiveStarShards = 28;
-        unNatfiveStarL = 0.5;
-        unNatfiveStarD = 0.5;
-        fiveStarL = 0.133;
-        fiveStarD = 0.133;
-        fiveStarEliteL = 0.0116;
-        fiveStarEliteD = 0.0116;
+        fourStarShardsL = 20.0;
+        fourStarShardsD = fourStarShardsL;
+        fourStarL = 28.0 / fourCountLD;
+        fourStarD = fourStarL;
+        fiveStarShards = 28.0;
+        unNatfiveStarL = 3.0 / unNatFiveCountLD;
+        unNatfiveStarD = unNatfiveStarL;
+        fiveStarL = 0.8 / fiveCountLD;
+        fiveStarD = fiveStarL;
+        fiveStarEliteL = 0.2 / fiveCountEliteLD;
+        fiveStarEliteD = fiveStarEliteL;
+
+        // System.out.println(fourStarShardsL + " " + fourStarShardsD + " " + fourStarL + " " + fourStarD + " " + fiveStarShards + " " + unNatfiveStarL + " " + unNatfiveStarD + " " + fiveStarL + " " + fiveStarD + " " + fiveStarEliteL + " " + fiveStarEliteD);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -764,6 +788,8 @@ public class HeroSummon {
      * Three star shards
      */
 
+    // Idk if I will add three stars in the future or not
+    // Initially, I forgot to implement this function in the app itself
     public String threeStarShardSummon()
     {
         threeStar = 4.8;
@@ -781,8 +807,8 @@ public class HeroSummon {
 
     public String fourStarShardSummon()
     {
-        overallFourStar = 3.0625;
-        overallFourStarLD = 0.333;
+        overallFourStar = 98.0 / fourCount;
+        overallFourStarLD = 2.0 / fourCountLD;
 
         fourStarFst = overallFourStar;
         fourStarAby = overallFourStar;
@@ -800,7 +826,7 @@ public class HeroSummon {
 
     public String fourStarShardSummonFst()
     {
-        fourStarFst = 12.5;
+        fourStarFst = 100.0 / fourCountFst;
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -810,7 +836,7 @@ public class HeroSummon {
 
     public String fourStarShardSummonAby()
     {
-        fourStarAby = 12.5;
+        fourStarAby = 100.0 / fourCountAby;
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -820,7 +846,7 @@ public class HeroSummon {
 
     public String fourStarShardSummonFrt()
     {
-        fourStarFrt = 12.5;
+        fourStarFrt = 100.0 / fourCountFrt;
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -830,7 +856,7 @@ public class HeroSummon {
 
     public String fourStarShardSummonShd()
     {
-        fourStarShd = 12.5;
+        fourStarShd = 100.0 / fourCountShd;
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -840,7 +866,7 @@ public class HeroSummon {
 
     public String fourStarShardSummonL()
     {
-        fourStarL = 33.3;
+        fourStarL = 100.0 / fourCountL;
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -850,7 +876,7 @@ public class HeroSummon {
 
     public String fourStarShardSummonD()
     {
-        fourStarD = 33.3;
+        fourStarD = 100.0 / fourCountD;
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -864,7 +890,8 @@ public class HeroSummon {
 
     public String fiveStarShardSummon()
     {
-        overallFiveStar = 2.94;
+        overallFiveStar = 100.0 / (fiveCount + 4);
+        // System.out.println(overallFiveStar);
 
         fiveStarFst = overallFiveStar;
         fiveStarAby = overallFiveStar;
@@ -886,7 +913,8 @@ public class HeroSummon {
 
     public String fiveStarShardSummonFst()
     {
-        fiveStarFst = 11.1;
+        fiveStarFst = 100.0 / (fiveCountFst + 2);
+        // System.out.println(fiveStarFst);
 
         double[] fiveStarFstList = getRates();
 
@@ -901,7 +929,8 @@ public class HeroSummon {
 
     public String fiveStarShardSummonAby()
     {
-        fiveStarAby = 12.5;
+        fiveStarAby = 100.0 / fiveCountAby;
+        // System.out.println(fiveStarAby);
 
         double[] fiveStarAbyList = getRates();
 
@@ -913,7 +942,8 @@ public class HeroSummon {
 
     public String fiveStarShardSummonFrt()
     {
-        fiveStarFrt = 11.1;
+        fiveStarFrt = 100.0 / (fiveCountFrt + 1);
+        // System.out.println(fiveStarFrt);
 
         double[] fiveStarFrtList = getRates();
 
@@ -927,7 +957,8 @@ public class HeroSummon {
 
     public String fiveStarShardSummonShd()
     {
-        fiveStarShd = 12.5;
+        fiveStarShd = 100.0 / (fiveCountShd + 1);
+        // System.out.println(fiveStarShd);
 
         double[] fiveStarShdList = getRates();
 
@@ -941,8 +972,8 @@ public class HeroSummon {
 
     public String fiveStarShardSummonL()
     {
-        fiveStarL = 33.3;
-
+        fiveStarL = 100.0 / fiveCountL;
+        // System.out.println(fiveStarL);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -952,8 +983,8 @@ public class HeroSummon {
 
     public String fiveStarShardSummonD()
     {
-        fiveStarD = 33.3;
-
+        fiveStarD = 100.0 / fiveCountD;
+        // System.out.println(fiveStarD);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -961,6 +992,7 @@ public class HeroSummon {
         return hero;
     }
 
+    // WHY are some heroes more elite than others? "All heroes are elite, but some heroes are more elite than others." - George Orwell (probably)
     public String fiveStarEliteShardSummon()
     {
         overallFiveStarElite = 0.77;
@@ -1004,6 +1036,7 @@ public class HeroSummon {
         return hero;
     }
 
+    // What did FB and Belrain ever do to you? :(
     public String fiveStarEliteShardSummonL()
     {
         fiveStarEliteL = 6.67;
@@ -1082,13 +1115,14 @@ public class HeroSummon {
 
     public String compassOfTranscendedFate(String heroReg, String heroLD)
     {
-        overallUnNatFiveStarLD = 1.67;
-        overallUnNatFiveStar = 1.62;
-        overallFiveStar = 0.933;
-        overallFiveStarLD = 0.83;
-        overallFiveStarElite = 0.0869;
-        overallFiveStarEliteLD = 0.0625;
+        overallUnNatFiveStarLD = 10.0 / unNatFiveCountLD;
+        overallUnNatFiveStar = 52.0 / unNatFiveCount;
+        overallFiveStar = 28.0 / fiveCount;
+        overallFiveStarLD = 5.0 / fiveCountLD;
+        overallFiveStarElite = 4.0 / fiveCountElite;
+        overallFiveStarEliteLD = 1.0 / fiveCountEliteLD;
         overallCoTRate = 6.67;
+        // System.out.println(overallUnNatFiveStarLD + " " + overallUnNatFiveStar + " " + overallFiveStar + " " + overallFiveStarLD + " " + overallFiveStarElite + " " + overallFiveStarEliteLD + " " + overallCoTRate);
 
 
         unNatfiveStarL = overallUnNatFiveStarLD;
@@ -1138,18 +1172,19 @@ public class HeroSummon {
         }
 
         resetRates();
-        printCompassRates();
+        // printCompassRates();
         return hero;
     }
 
     public String compassOfTranscendedGuidance(String heroReg, String heroLD)
     {
-        overallUnNatFiveStarLD = 1.67;
-        overallUnNatFiveStar = 1.62;
-        overallFiveStar = 0.933;
-        overallFiveStarLD = 0.83;
-        overallFiveStarElite = 0.0869;
-        overallFiveStarEliteLD = 0.0625;
+        overallUnNatFiveStarLD = 10.0 / unNatFiveCountLD;
+        overallUnNatFiveStar = 52.0 / unNatFiveCount;
+        overallFiveStar = 28.0 / fiveCount;
+        overallFiveStarLD = 5.0 / fiveCountLD;
+        overallFiveStarElite = 4.0 / fiveCountElite;
+        overallFiveStarEliteLD = 1.0 / fiveCountEliteLD;
+        // System.out.println(overallUnNatFiveStarLD + " " + overallUnNatFiveStar + " " + overallFiveStar + " " + overallFiveStarLD + " " + overallFiveStarElite + " " + overallFiveStarEliteLD);
 
 
         unNatfiveStarL = overallUnNatFiveStarLD;
@@ -1207,7 +1242,7 @@ public class HeroSummon {
             compassHeroLDRate = resetCompassHeroLDRate;
         }
         resetRates();
-        printCompassRates();
+        // printCompassRates();
         return hero;
     }
 
