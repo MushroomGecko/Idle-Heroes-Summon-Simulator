@@ -142,7 +142,7 @@ public class HeroSummon {
 
 
 
-    private static final String heroes[] =
+    private static final String[] heroes =
             {
                     "Bella- 1*", "Scout- 1*", "Sailor- 1*",
                     "Imp- 1*", "Son of Flame- 1*", "Lava Beetle- 1*",
@@ -212,11 +212,9 @@ public class HeroSummon {
         return heroes;
     }
 
-
-
     public double[] getRates()
     {
-        double pullRates[] =
+        double[] pullRates =
                 {
                         oneStar, oneStar, oneStar,
                         oneStar, oneStar, oneStar,
@@ -284,6 +282,12 @@ public class HeroSummon {
 
         return pullRates;
     }
+
+    // So much spaghetti code I may as well add some meatballs
+    // It is imperative that I have these awful variables. It will make adding in new heroes much easier and more dynamic (Assuming DH Games doesn't change the overall summon rates for heroes)
+    // Instead of hardcoding in the rates found in game every hero release like I've been doing, I'm making them auto adjust so I'm not constantly having one hand on my phone scrolling through
+    // IH summon rates and one hand on my keyboard typing away at the keyboard like in Bruce Almighty
+    // If you read these comments, here's a cookie (*)
     private final int oneCount = findIndex("Lavine", 2) - findIndex("Bella", 1);
     private final int twoCount = findIndex("Sybil", 3) - findIndex("Lavine", 2);
     private final int threeCount = findIndex("Holy Kid", 3) - findIndex("Sybil", 3); // 20
@@ -297,6 +301,35 @@ public class HeroSummon {
     private final int fiveCountLD = findIndex("Faith Blade", 5) - findIndex("Michelle", 5); // 6
     private final int fiveCountEliteLD = findIndex("5 Star Shards") - findIndex("Faith Blade", 5); // 16
 
+    private final int fourCountFst = findIndex("Rogge", 4) - findIndex("Wind Walker", 4);
+    private final int unNatFiveCountFst = findIndex("Rogge", 5) - findIndex("Wind Walker", 5);
+    private final int fiveCountFst = findIndex("Gusta", 5) - findIndex("Eddga", 5);
+    private final int fiveCountEliteFst = findIndex("Skerei", 5) - findIndex("Vesa", 5);
+
+    private final int fourCountAby = findIndex("Time Mage", 4) - findIndex("Rogge", 4);
+    private final int unNatFiveCountAby = findIndex("Time Mage", 5) - findIndex("Rogge", 5);
+    private final int fiveCountAby = findIndex("Flame Strike", 5) - findIndex("Gusta", 5);
+    private final int fiveCountEliteAby = findIndex("Ormus", 5) - findIndex("Skerei", 5);
+
+    private final int fourCountFrt = findIndex("Grumpy Corpse", 4) - findIndex("Time Mage", 4);
+    private final int unNatFiveCountFrt = findIndex("Grumpy Corpse", 5) - findIndex("Time Mage", 5);
+    private final int fiveCountFrt = findIndex("Dominator", 5) - findIndex("Flame Strike", 5);
+    private final int fiveCountEliteFrt = findIndex("Kamath", 5) - findIndex("Ormus", 5);
+
+    private final int fourCountShd = findIndex("Divine Spirit", 4) - findIndex("Grumpy Corpse", 4);
+    private final int unNatFiveCountShd = findIndex("Divine Spirit", 5) - findIndex("Grumpy Corpse", 5);
+    private final int fiveCountShd = findIndex("Vesa", 5) - findIndex("Dominator", 5);
+    private final int fiveCountEliteShd = findIndex("Michelle", 5) - findIndex("Kamath", 5);
+
+    private final int fourCountL = findIndex("Dark Spirit", 4) - findIndex("Divine Spirit", 4);
+    private final int unNatFiveCountL = findIndex("Dark Spirit", 5) - findIndex("Divine Spirit", 5);
+    private final int fiveCountL = findIndex("Das Moge", 5) - findIndex("Michelle", 5);
+    private final int fiveCountEliteL = findIndex("Amuvor", 5) - findIndex("Faith Blade", 5);
+
+    private final int fourCountD = findIndex("4 Star Shards") - findIndex("Dark Spirit", 4);
+    private final int unNatFiveCountD = findIndex("Eddga", 5) - findIndex("Dark Spirit", 5);
+    private final int fiveCountD = findIndex("Faith Blade", 5) - findIndex("Das Moge", 5);
+    private final int fiveCountEliteD = findIndex("5 Star Shards") - findIndex("Amuvor", 5);
 
     public boolean checkLengths()
     {
@@ -386,7 +419,7 @@ public class HeroSummon {
      * Responsible for determining what is randomly selected
      */
 
-    public static int distribution(double items[])
+    public static int distribution(double[] items)
     {
         // Compute the total weight of all items together
         double totalWeight = 0.0d;
@@ -407,7 +440,7 @@ public class HeroSummon {
             }
         }
         return randomIndex;
-    };
+    }
 
 
     /*
@@ -462,7 +495,7 @@ public class HeroSummon {
     {
         overallTwoStar = 32.0 / twoCount;
         overallThreeStar = 44.0 / threeCount;
-        overallThreeStarLD = 10 / threeCountLD;
+        overallThreeStarLD = 10.0 / threeCountLD;
         overallFourStar = 10.4 / fourCount;
         overallFourStarLD = 2.8 / fourCountLD;
         overallFiveStar = 0.8 / (fiveCount + 4);
@@ -487,7 +520,7 @@ public class HeroSummon {
         fiveStarFrt = overallFiveStar;
         fiveStarShd = overallFiveStar;
 
-        double friendshipList[] = getRates();
+        double[] friendshipList = getRates();
 
         friendshipList[findIndex("Valkyrie", 5)] = overallFiveStar;
         friendshipList[findIndex("Starlight", 5)] = overallFiveStar;
@@ -545,7 +578,7 @@ public class HeroSummon {
 
         fiveStarEliteL = overallFiveStarEliteLD;
         fiveStarEliteD = overallFiveStarEliteLD;
-        int index = 0;
+        int index;
 
         HSEventTotalDraws++;
         if(HSEventTotalDraws%500 == 0)
@@ -838,7 +871,7 @@ public class HeroSummon {
         fiveStarFrt = overallFiveStar;
         fiveStarShd = overallFiveStar;
 
-        double fiveStarList[] = getRates();
+        double[] fiveStarList = getRates();
 
         fiveStarList[findIndex("Valkyrie", 5)] = overallFiveStar;
         fiveStarList[findIndex("Starlight", 5)] = overallFiveStar;
@@ -855,7 +888,7 @@ public class HeroSummon {
     {
         fiveStarFst = 11.1;
 
-        double fiveStarFstList[] = getRates();
+        double[] fiveStarFstList = getRates();
 
         fiveStarFstList[findIndex("Valkyrie", 5)] = fiveStarFst;
         fiveStarFstList[findIndex("Starlight", 5)] = fiveStarFst;
@@ -870,7 +903,7 @@ public class HeroSummon {
     {
         fiveStarAby = 12.5;
 
-        double fiveStarAbyList[] = getRates();
+        double[] fiveStarAbyList = getRates();
 
         int index = distribution(fiveStarAbyList);
         String hero = heroes[index];
@@ -882,7 +915,7 @@ public class HeroSummon {
     {
         fiveStarFrt = 11.1;
 
-        double fiveStarFrtList[] = getRates();
+        double[] fiveStarFrtList = getRates();
 
         fiveStarFrtList[findIndex("Ormus", 5)] = fiveStarFrt;
 
@@ -896,7 +929,7 @@ public class HeroSummon {
     {
         fiveStarShd = 12.5;
 
-        double fiveStarShdList[] = getRates();
+        double[] fiveStarShdList = getRates();
 
         fiveStarShdList[findIndex("Aidan", 5)] = overallFiveStar;
 
@@ -937,7 +970,7 @@ public class HeroSummon {
         fiveStarEliteFrt = overallFiveStarElite;
         fiveStarEliteShd = overallFiveStarElite;
 
-        double eliteList[] = getRates();
+        double[] eliteList = getRates();
 
         double lowerRates = 4.375;
         eliteList[findIndex("King Barton", 5)] = lowerRates;
@@ -975,7 +1008,7 @@ public class HeroSummon {
     {
         fiveStarEliteL = 6.67;
 
-        double eliteListL[] = getRates();
+        double[] eliteListL = getRates();
 
         double upperRates = 30;
         eliteListL[findIndex("Belrain", 5)] = upperRates;
@@ -991,7 +1024,7 @@ public class HeroSummon {
     {
         fiveStarEliteD = 6.667;
 
-        double eliteListD[] = getRates();
+        double[] eliteListD = getRates();
 
         double upperRates = 30;
         eliteListD[findIndex("Mihm", 5)] = upperRates;
@@ -1088,7 +1121,7 @@ public class HeroSummon {
         compassHeroLDRate += 0.025;
         compassTotalDraws = 0;
 
-        double compassList[] = getRates();
+        double[] compassList = getRates();
         compassList[findIndex(heroReg)] = compassHeroRate;
         compassList[findIndex(heroLD)] = compassHeroLDRate;
 
@@ -1144,7 +1177,7 @@ public class HeroSummon {
         fiveStarEliteD = overallFiveStarEliteLD;
 
 
-        int index = 0;
+        int index;
 
         compassHeroRate += 0.1;
         compassHeroLDRate += 0.025;
@@ -1157,7 +1190,7 @@ public class HeroSummon {
         }
         else
         {
-            double compassList[] = getRates();
+            double[] compassList = getRates();
             compassList[findIndex(heroReg)] = compassHeroRate;
             compassList[findIndex(heroLD)] = compassHeroLDRate;
 
@@ -1180,15 +1213,14 @@ public class HeroSummon {
 
     public int findIndex(String heroName)
     {
-        int index = Arrays.asList(heroes).lastIndexOf(heroName);
-        return index;
+        return Arrays.asList(heroes).lastIndexOf(heroName);
     }
 
     public int findIndex(String heroName, int star)
     {
         String strInt = String.valueOf(star);
 
-        String heroesCopy[] = new String[heroes.length];
+        String[] heroesCopy = new String[heroes.length];
         for(int i = 0; i < heroes.length; i++)
         {
             heroesCopy[i] = heroes[i].toLowerCase();
@@ -1198,8 +1230,7 @@ public class HeroSummon {
         heroName = heroName.toLowerCase();
         String output = heroName + "- " + strInt + "*";
 
-        int index = Arrays.asList(heroesCopy).lastIndexOf(output);
-        return index;
+        return Arrays.asList(heroesCopy).lastIndexOf(output);
     }
 
     public void printCompassRates()
@@ -1237,7 +1268,7 @@ public class HeroSummon {
 
     public String returnCompassTotalDraws()
     {
-        Integer total = new Integer((compassTotalDraws));
+        Integer total = new Integer(compassTotalDraws);
         return total.toString();
     }
 

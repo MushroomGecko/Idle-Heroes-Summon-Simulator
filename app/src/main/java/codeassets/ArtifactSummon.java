@@ -27,7 +27,7 @@ public class ArtifactSummon {
         p2w = 0;
     }
 
-    private static final String artifacts[] =
+    private static final String[] artifacts =
             {
                     // Purple
                     "Snow Meaning", "Chaos Stone", "Heaven Spine", "Spirit Locker", "Scarlet Scar",
@@ -64,7 +64,7 @@ public class ArtifactSummon {
 
     public double[] getRates()
     {
-        double pullRates[] =
+        double[] pullRates =
                 {
                         purple, purple, purple, purple, purple,
 
@@ -109,7 +109,7 @@ public class ArtifactSummon {
         p2w = 0;
     }
 
-    public static int distribution(double items[])
+    public static int distribution(double[] items)
     {
         // Compute the total weight of all items together
         double totalWeight = 0.0d;
@@ -204,8 +204,7 @@ public class ArtifactSummon {
 
     public int findIndex(String artifactName)
     {
-        int index = Arrays.asList(artifacts).lastIndexOf(artifactName);
-        return index;
+        return Arrays.asList(artifacts).lastIndexOf(artifactName);
     }
 
 

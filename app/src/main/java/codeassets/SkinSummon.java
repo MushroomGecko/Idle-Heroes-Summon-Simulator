@@ -3,7 +3,7 @@ package codeassets;
 import java.util.Arrays;
 
 public class SkinSummon {
-    private static final String skins[] =
+    private static final String[] skins =
             {
                     "King of War- Asmodel", "Arrival of Demon- Barea", "Black Warrior- Das Moge", "Champion Golden Sword- Iceblink", "Arctic Blade- Blood Blade",
                     "Last Wish- Demon Hunter", "Night Witch- Malassa", "Chaos Messenger- Faith Blade", "Celestial Messenger- Amuvor", "Gothic Alice- Vesa",
@@ -21,7 +21,7 @@ public class SkinSummon {
 
     public double[] getRates()
     {
-        double pullRates[] =
+        double[] pullRates =
                 {
                         rate, rate, rate, rate, rate,
                         rate, rate, rate, rate, rate,
@@ -33,7 +33,7 @@ public class SkinSummon {
         return pullRates;
     }
 
-    public static int distribution(double items[])
+    public static int distribution(double[] items)
     {
         // Compute the total weight of all items together
         double totalWeight = 0.0d;

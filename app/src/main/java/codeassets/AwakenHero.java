@@ -48,7 +48,7 @@ public class AwakenHero {
         s = 0.0015;
     }
 
-    private static final String awaken[] =
+    private static final String[] awaken =
             {
                     "E-", "E", "E+",
                     "D-", "D", "D+",
@@ -65,7 +65,7 @@ public class AwakenHero {
 
     public double[] getRates()
     {
-        double pullRates[] =
+        double[] pullRates =
                 {
                         eminus, e, eplus,
                         dminus, d, dplus,
@@ -77,7 +77,7 @@ public class AwakenHero {
         return pullRates;
     }
 
-    public static int distribution(double items[])
+    public static int distribution(double[] items)
     {
         // Compute the total weight of all items together
         double totalWeight = 0.0d;
