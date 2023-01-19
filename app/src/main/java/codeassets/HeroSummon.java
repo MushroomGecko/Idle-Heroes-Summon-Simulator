@@ -52,8 +52,8 @@ public class HeroSummon {
 
     private double fiveStarShards;
 
+    private int HSEventTotalDraws;
     private double eventHeroRate;
-    private int eventDraws;
 
     private double CoTRate;
 
@@ -71,7 +71,6 @@ public class HeroSummon {
     private double overallFiveStarEliteLD;
     private double overallCoTRate;
 
-    private int HSEventTotalDraws;
     private int compassTotalDraws;
     private double compassHeroRate;
     private double compassHeroLDRate;
@@ -285,6 +284,18 @@ public class HeroSummon {
 
         return pullRates;
     }
+    private final int oneCount = findIndex("Lavine", 2) - findIndex("Bella", 1);
+    private final int twoCount = findIndex("Sybil", 3) - findIndex("Lavine", 2);
+    private final int threeCount = findIndex("Holy Kid", 3) - findIndex("Sybil", 3); // 20
+    private final int threeCountLD = findIndex("Wind Walker", 4) - findIndex("Holy Kid", 3); // 2
+    private final int fourCount = findIndex("Divine Spirit", 4) - findIndex("Wind Walker", 4); //32
+    private final int fourCountLD = findIndex("4 Star Shards") - findIndex("Divine Spirit", 4); // 6
+    private final int unNatFiveCount = findIndex("Divine Spirit", 5) - findIndex("Wind Walker", 5); //32
+    private final int unNatFiveCountLD = findIndex("Eddga", 5) - findIndex("Divine Spirit", 5); // 6
+    private final int fiveCount = findIndex("Vesa", 5) - findIndex("Eddga", 5); // 30
+    private final int fiveCountElite = findIndex("Michelle", 5) - findIndex("Vesa", 5); // 46
+    private final int fiveCountLD = findIndex("Faith Blade", 5) - findIndex("Michelle", 5); // 6
+    private final int fiveCountEliteLD = findIndex("5 Star Shards") - findIndex("Faith Blade", 5); // 16
 
 
     public boolean checkLengths()
@@ -405,13 +416,15 @@ public class HeroSummon {
 
     public String basicSummon()
     {
-        overallOneStar = 4.67;
-        overallTwoStar = 2.125;
-        overallThreeStar = 0.34;
-        overallThreeStarLD = 0.85;
-        overallFourStar = 0.375;
-        overallFourStarLD = 0.0417;
-        overallFiveStar = 0.00167;
+        overallOneStar = 56.0 / oneCount;
+        overallTwoStar = 34.0 / twoCount;
+        overallThreeStar = 6.8 / threeCount;
+        overallThreeStarLD = 1.7 / threeCountLD;
+        overallFourStar = 1.2 / fourCount;
+        overallFourStarLD = 0.25 / fourCountLD;
+        overallFiveStar = 0.05 / fiveCount;
+
+        System.out.println(overallOneStar + " " + overallTwoStar + " " + overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar);
 
         oneStar = overallOneStar;
 
@@ -447,12 +460,14 @@ public class HeroSummon {
 
     public String friendshipSummon()
     {
-        overallTwoStar = 2;
-        overallThreeStar = 2.2;
-        overallThreeStarLD = 5;
-        overallFourStar = 0.325;
-        overallFourStarLD = 0.47;
-        overallFiveStar = 0.223;
+        overallTwoStar = 32.0 / twoCount;
+        overallThreeStar = 44.0 / threeCount;
+        overallThreeStarLD = 10 / threeCountLD;
+        overallFourStar = 10.4 / fourCount;
+        overallFourStarLD = 2.8 / fourCountLD;
+        overallFiveStar = 0.8 / (fiveCount + 4);
+
+        System.out.println(overallTwoStar + " " + overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar);
 
         twoStar = overallTwoStar;
 
@@ -472,7 +487,14 @@ public class HeroSummon {
         fiveStarFrt = overallFiveStar;
         fiveStarShd = overallFiveStar;
 
-        int index = distribution(getRates());
+        double friendshipList[] = getRates();
+
+        friendshipList[findIndex("Valkyrie", 5)] = overallFiveStar;
+        friendshipList[findIndex("Starlight", 5)] = overallFiveStar;
+        friendshipList[findIndex("Ormus", 5)] = overallFiveStar;
+        friendshipList[findIndex("Aidan", 5)] = overallFiveStar;
+
+        int index = distribution(friendshipList);
         String hero = heroes[index];
         resetRates();
         return hero;
@@ -567,20 +589,22 @@ public class HeroSummon {
 
     public String getHSEventTotalDraws()
     {
-        Integer total = new Integer((HSEventTotalDraws));
+        Integer total = new Integer(HSEventTotalDraws);
         return total.toString();
     }
 
     public String heroicSummon()
     {
-        overallThreeStar = 3.288;
-        overallThreeStarLD = 5.54;
-        overallFourStar = 0.525;
-        overallFourStarLD = 0.5333;
-        overallFiveStar = 0.032;
-        overallFiveStarLD = 0.0167;
-        overallFiveStarElite = 0.01;
-        overallFiveStarEliteLD = 0.00235;
+        overallThreeStar = 67.2/threeCount;
+        overallThreeStarLD = 11.22 / threeCountLD;
+        overallFourStar = 16.8/fourCount;
+        overallFourStarLD = 3.2 / fourCountLD;
+        overallFiveStar = 0.96 / fiveCount;
+        overallFiveStarElite = 0.48 / fiveCountElite;
+        overallFiveStarLD = 0.1 / fiveCountLD;
+        overallFiveStarEliteLD = 0.04 / fiveCountEliteLD;
+
+        System.out.println(overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar + " " + overallFiveStarElite + " " + overallFiveStarLD + " " + overallFiveStarEliteLD);
 
 
         threeStar = overallThreeStar;
