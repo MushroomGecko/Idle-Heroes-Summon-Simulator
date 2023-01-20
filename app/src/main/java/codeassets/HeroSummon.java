@@ -197,12 +197,12 @@ public class HeroSummon {
                     "Michelle- 5*", "Asmodel- 5*", "Gerke- 5*",
                     "Das Moge- 5*", "Sleepless- 5*", "Dark Arthindol- 5*",
 
-                    "Faith Blade- 5*", "Belrain- 5*", "Aida- 5*", "Tara- 5*", "Russell- 5*", "Trashilago- 5*", "Andrea- 5*", "Eos- 5*",
+                    "Faith Blade- 5*", "Belrain- 5*", "Aida- 5*", "Tara- 5*", "Russell- 5*", "Trashilago- 5*", "Andrea- 5*", "Eos- 5*", "Vulcan- 5*",
                     "Amuvor- 5*", "Mihm- 5*", "Aspen- 5*", "Amen-Ra- 5*", "Carrie- 5*", "Drake- 5*", "Phorcys- 5*", "Mockman- 5*",
 
                     "5 Star Shards",
 
-                    "Vulcan- 5*",
+                    "Elena- 5*",
 
                     "Core of Transcendence"
             };
@@ -270,7 +270,7 @@ public class HeroSummon {
                         fiveStarL, fiveStarL, fiveStarL,
                         fiveStarD, fiveStarD, fiveStarD,
 
-                        fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL,
+                        fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL, fiveStarEliteL,
                         fiveStarEliteD, fiveStarEliteD, fiveStarEliteD, fiveStarEliteD, fiveStarEliteD, fiveStarEliteD, fiveStarEliteD, fiveStarEliteD,
 
                         fiveStarShards,
@@ -457,7 +457,7 @@ public class HeroSummon {
         overallFourStarLD = 0.25 / fourCountLD;
         overallFiveStar = 0.05 / fiveCount;
 
-        System.out.println(overallOneStar + " " + overallTwoStar + " " + overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar);
+        // System.out.println(overallOneStar + " " + overallTwoStar + " " + overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar);
 
         oneStar = overallOneStar;
 
@@ -500,7 +500,7 @@ public class HeroSummon {
         overallFourStarLD = 2.8 / fourCountLD;
         overallFiveStar = 0.8 / (fiveCount + 4);
 
-        System.out.println(overallTwoStar + " " + overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar);
+        // System.out.println(overallTwoStar + " " + overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar);
 
         twoStar = overallTwoStar;
 
@@ -540,17 +540,19 @@ public class HeroSummon {
 
     public String heroicSummonEvent()
     {
-        overallThreeStar = 3.288;
-        overallThreeStarLD = 5.54;
-        overallFourStar = 0.525;
-        overallFourStarLD = 0.5333;
-        overallFiveStar = 0.032 * 2.0;
-        overallFiveStarLD = 0.0167 * 2.0;
-        overallFiveStarElite = 0.01 * 2.0;
-        overallFiveStarEliteLD = 0.00235 * 2.0;
-        eventHeroRate = 0.00235;
+        overallThreeStar = 65.76 / threeCount;
+        overallThreeStarLD = 11.08 / threeCountLD;
+        overallFourStar = 16.8 / fourCount;
+        overallFourStarLD = 3.2 / fourCountLD;
+        overallFiveStar = 1.92 / fiveCount;
+        overallFiveStarElite = 0.96 / fiveCountElite;
+        overallFiveStarLD = 0.2 / fiveCountLD;
+        overallFiveStarEliteLD = 0.08 / (fiveCountEliteLD + 1);
+        eventHeroRate = overallFiveStarEliteLD;
 
         double eventHeroRateCopy = eventHeroRate;
+
+        System.out.println(overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar + " " + overallFiveStarElite + " " + overallFiveStarLD + " " + overallFiveStarEliteLD);
 
         threeStar = overallThreeStar;
         threeStarLD = overallThreeStarLD;
@@ -775,7 +777,7 @@ public class HeroSummon {
         fiveStarEliteL = 0.2 / fiveCountEliteLD;
         fiveStarEliteD = fiveStarEliteL;
 
-        // System.out.println(fourStarShardsL + " " + fourStarShardsD + " " + fourStarL + " " + fourStarD + " " + fiveStarShards + " " + unNatfiveStarL + " " + unNatfiveStarD + " " + fiveStarL + " " + fiveStarD + " " + fiveStarEliteL + " " + fiveStarEliteD);
+        System.out.println(fourStarShardsL + " " + fourStarShardsD + " " + fourStarL + " " + fourStarD + " " + fiveStarShards + " " + unNatfiveStarL + " " + unNatfiveStarD + " " + fiveStarL + " " + fiveStarD + " " + fiveStarEliteL + " " + fiveStarEliteD);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -1039,13 +1041,15 @@ public class HeroSummon {
     // What did FB and Belrain ever do to you? :(
     public String fiveStarEliteShardSummonL()
     {
-        fiveStarEliteL = 6.67;
+        fiveStarEliteL = 40.0 / (fiveCountEliteL - 2);
 
         double[] eliteListL = getRates();
 
-        double upperRates = 30;
+        double upperRates = 60.0 / 2;
         eliteListL[findIndex("Belrain", 5)] = upperRates;
         eliteListL[findIndex("Faith Blade", 5)] = upperRates;
+
+        System.out.println(fiveStarEliteL + " " + upperRates);
 
         int index = distribution(eliteListL);
         String hero = heroes[index];
@@ -1055,13 +1059,15 @@ public class HeroSummon {
 
     public String fiveStarEliteShardSummonD()
     {
-        fiveStarEliteD = 6.667;
+        fiveStarEliteD = 40.0 / (fiveCountEliteD - 2);
 
         double[] eliteListD = getRates();
 
-        double upperRates = 30;
+        double upperRates = 60.0 / 2;
         eliteListD[findIndex("Mihm", 5)] = upperRates;
         eliteListD[findIndex("Amuvor", 5)] = upperRates;
+
+        System.out.println(fiveStarEliteD + " " + upperRates);
 
         int index = distribution(eliteListD);
         String hero = heroes[index];
@@ -1073,8 +1079,8 @@ public class HeroSummon {
     {
         int first = findIndex("Vesa", 5);
         int last = findIndex("Michelle", 5) - 1;
-        System.out.println(first + " " + heroes[first]);
-        System.out.println(last + " " + heroes[last]);
+        // System.out.println(first + " " + heroes[first]);
+        // System.out.println(last + " " + heroes[last]);
 
         String[] regularHeroes = new String[(last-first) + 1];
 
@@ -1083,10 +1089,12 @@ public class HeroSummon {
             regularHeroes[i] = heroes[first + i];
         }
 
+        /*
         for(int i = 0; i < regularHeroes.length; i++)
         {
             System.out.println(regularHeroes[i]);
         }
+        */
 
         return regularHeroes;
     }
@@ -1095,8 +1103,8 @@ public class HeroSummon {
     {
         int first = findIndex("Faith Blade", 5);
         int last = findIndex("5 Star Shards") - 1;
-        System.out.println(first + " " + heroes[first]);
-        System.out.println(last + " " + heroes[last]);
+        // System.out.println(first + " " + heroes[first]);
+        // System.out.println(last + " " + heroes[last]);
 
         String[] ldHeroes = new String[(last-first) + 1];
 
@@ -1105,10 +1113,12 @@ public class HeroSummon {
             ldHeroes[i] = heroes[first + i];
         }
 
+        /*
         for(int i = 0; i < ldHeroes.length; i++)
         {
             System.out.println(ldHeroes[i]);
         }
+        */
 
         return ldHeroes;
     }

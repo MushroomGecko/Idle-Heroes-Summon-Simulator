@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                String androidVersion = "1.30.25";
-                String iosVersion = "1.38.9";
+                String androidVersion = "1.30.27";
+                String iosVersion = "1.38.11";
                 alert(
                         "App version: " + BuildConfig.VERSION_NAME + "\n\n" +
                         "Idle Heroes Summon Simulator is an app that allows you to simulate various things from the game " +

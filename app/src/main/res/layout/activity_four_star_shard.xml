@@ -15,6 +15,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/gradient_drawable"
         android:text="Back"
+        android:textColor="@color/brown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

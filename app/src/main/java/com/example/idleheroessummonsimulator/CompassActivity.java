@@ -106,8 +106,8 @@ public class CompassActivity extends AppCompatActivity implements AdapterView.On
                 heroReg = mySum.returnIndex(mySum.findIndex("Vesa", 5) + i);
                 name = "h"+(mySum.findIndex("Vesa", 5) + i);
                 index = getResources().getIdentifier(name, "drawable", getPackageName());
-                System.out.println(index);
-                System.out.println(name);
+                // System.out.println(index);
+                // System.out.println(name);
 
                 binding.compassRegPortrait.setImageResource(index);
                 break;
@@ -115,8 +115,8 @@ public class CompassActivity extends AppCompatActivity implements AdapterView.On
                 heroLD = mySum.returnIndex(mySum.findIndex("Faith Blade", 5) + i);
                 name = "h"+(mySum.findIndex("Faith Blade", 5) + i);
                 index = getResources().getIdentifier(name, "drawable", getPackageName());
-                System.out.println(index);
-                System.out.println(name);
+                // System.out.println(index);
+                // System.out.println(name);
 
                 binding.compassLDPortrait.setImageResource(index);
                 break;
