@@ -552,7 +552,7 @@ public class HeroSummon {
 
         double eventHeroRateCopy = eventHeroRate;
 
-        System.out.println(overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar + " " + overallFiveStarElite + " " + overallFiveStarLD + " " + overallFiveStarEliteLD);
+        // System.out.println(overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar + " " + overallFiveStarElite + " " + overallFiveStarLD + " " + overallFiveStarEliteLD);
 
         threeStar = overallThreeStar;
         threeStarLD = overallThreeStarLD;
@@ -639,7 +639,7 @@ public class HeroSummon {
         overallFiveStarLD = 0.1 / fiveCountLD;
         overallFiveStarEliteLD = 0.04 / fiveCountEliteLD;
 
-        System.out.println(overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar + " " + overallFiveStarElite + " " + overallFiveStarLD + " " + overallFiveStarEliteLD);
+        // System.out.println(overallThreeStar + " " + overallThreeStarLD + " " + overallFourStar + " " + overallFourStarLD + " " + overallFiveStar + " " + overallFiveStarElite + " " + overallFiveStarLD + " " + overallFiveStarEliteLD);
 
 
         threeStar = overallThreeStar;
@@ -777,7 +777,7 @@ public class HeroSummon {
         fiveStarEliteL = 0.2 / fiveCountEliteLD;
         fiveStarEliteD = fiveStarEliteL;
 
-        System.out.println(fourStarShardsL + " " + fourStarShardsD + " " + fourStarL + " " + fourStarD + " " + fiveStarShards + " " + unNatfiveStarL + " " + unNatfiveStarD + " " + fiveStarL + " " + fiveStarD + " " + fiveStarEliteL + " " + fiveStarEliteD);
+        // System.out.println(fourStarShardsL + " " + fourStarShardsD + " " + fourStarL + " " + fourStarD + " " + fiveStarShards + " " + unNatfiveStarL + " " + unNatfiveStarD + " " + fiveStarL + " " + fiveStarD + " " + fiveStarEliteL + " " + fiveStarEliteD);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -811,6 +811,7 @@ public class HeroSummon {
     {
         overallFourStar = 98.0 / fourCount;
         overallFourStarLD = 2.0 / fourCountLD;
+        // System.out.println(overallFourStar + " " + overallFourStarLD);
 
         fourStarFst = overallFourStar;
         fourStarAby = overallFourStar;
@@ -829,6 +830,7 @@ public class HeroSummon {
     public String fourStarShardSummonFst()
     {
         fourStarFst = 100.0 / fourCountFst;
+        // System.out.println(fourStarFst);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -839,6 +841,7 @@ public class HeroSummon {
     public String fourStarShardSummonAby()
     {
         fourStarAby = 100.0 / fourCountAby;
+        // System.out.println(fourStarAby);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -849,6 +852,7 @@ public class HeroSummon {
     public String fourStarShardSummonFrt()
     {
         fourStarFrt = 100.0 / fourCountFrt;
+        // System.out.println(fourStarFrt);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -859,6 +863,7 @@ public class HeroSummon {
     public String fourStarShardSummonShd()
     {
         fourStarShd = 100.0 / fourCountShd;
+        // System.out.println(fourStarShd);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -869,6 +874,7 @@ public class HeroSummon {
     public String fourStarShardSummonL()
     {
         fourStarL = 100.0 / fourCountL;
+        // System.out.println(fourStarL);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -879,6 +885,7 @@ public class HeroSummon {
     public String fourStarShardSummonD()
     {
         fourStarD = 100.0 / fourCountD;
+        // System.out.println(fourStarD);
 
         int index = distribution(getRates());
         String hero = heroes[index];
@@ -1049,7 +1056,7 @@ public class HeroSummon {
         eliteListL[findIndex("Belrain", 5)] = upperRates;
         eliteListL[findIndex("Faith Blade", 5)] = upperRates;
 
-        System.out.println(fiveStarEliteL + " " + upperRates);
+        // System.out.println(fiveStarEliteL + " " + upperRates);
 
         int index = distribution(eliteListL);
         String hero = heroes[index];
@@ -1067,7 +1074,7 @@ public class HeroSummon {
         eliteListD[findIndex("Mihm", 5)] = upperRates;
         eliteListD[findIndex("Amuvor", 5)] = upperRates;
 
-        System.out.println(fiveStarEliteD + " " + upperRates);
+        // System.out.println(fiveStarEliteD + " " + upperRates);
 
         int index = distribution(eliteListD);
         String hero = heroes[index];
