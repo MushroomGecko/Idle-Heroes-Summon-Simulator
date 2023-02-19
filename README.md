@@ -37,6 +37,7 @@ Purple, green, red, red exclusive, orange, and orange exclusive artifacts\
 A hero bag to keep track of the heroes you have summoned.
 
 ## Plans For Future Updates
+Treasure Train\
 Prophet tree hero replacement\
 Starspawn eggs\
 Wishing Fountain\
