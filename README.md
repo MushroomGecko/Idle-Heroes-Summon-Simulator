@@ -36,8 +36,10 @@ Comeback Radio artifact chest summoning\
 Purple, green, red, red exclusive, orange, and orange exclusive artifacts\
 A hero bag to keep track of the heroes you have summoned.
 
-## Plans For Future Updates
+## In Progress
 Treasure Train\
+
+## Plans For Future Updates
 Prophet tree hero replacement\
 Starspawn eggs\
 Wishing Fountain\
