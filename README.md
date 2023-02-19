@@ -37,7 +37,7 @@ Purple, green, red, red exclusive, orange, and orange exclusive artifacts\
 A hero bag to keep track of the heroes you have summoned.
 
 ## In Progress
-Treasure Train\
+Treasure Train
 
 ## Plans For Future Updates
 Prophet tree hero replacement\
